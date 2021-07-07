@@ -19,9 +19,19 @@ namespace PocWebApiDapperEf.App.WebApi.Controllers
         [HttpGet]
         public ActionResult<IReadOnlyList<Curva>> Get()
         {
-            var curvaTeste = new Curva("Curva Teste");
-            _curvaServive.Add(curvaTeste);
             return Ok(_curvaServive.GetAll());
+        }
+
+        [HttpPost]
+        public ActionResult Post(int insertNumber)
+        {
+            for (int i = 1; i <= insertNumber; i++)
+            {
+                var curva = new Curva($"Curva - {i}");
+                _curvaServive.Add(curva);
+            }
+            
+            return Ok();
         }
     }
 }
