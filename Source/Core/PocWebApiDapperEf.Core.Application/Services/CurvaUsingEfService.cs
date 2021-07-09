@@ -22,5 +22,10 @@ namespace PocWebApiDapperEf.Core.Application.Services
         {
             return _curvaRepository.GetAll();
         }
+
+        public void DeleteAll()
+        {
+            _curvaRepository.DeleteAll();
+        }
     }
 }

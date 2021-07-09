@@ -7,11 +7,11 @@ using PocWebApiDapperEf.Infra.PersistenceEf.Contexts;
 
 namespace PocWebApiDapperEf.Infra.PersistenceEf.Repositories
 {
-    public class CurvaRepository : ICurvaUsingEfRepository
+    public class CurvaUsingEfRepository : ICurvaUsingEfRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public CurvaRepository(ApplicationDbContext dbContext)
+        public CurvaUsingEfRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -25,7 +25,7 @@ namespace PocWebApiDapperEf.Infra.PersistenceEf.Repositories
             }
             catch (Exception)
             {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
         }
 
@@ -37,7 +37,20 @@ namespace PocWebApiDapperEf.Infra.PersistenceEf.Repositories
             }
             catch (Exception)
             {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
+            }
+        }
+
+        public void DeleteAll()
+        {
+            try
+            {
+                _dbContext.RemoveRange(GetAll());
+                _dbContext.SaveChanges();
+            }
+            catch
+            {
+                throw new NotImplementedException();
             }
         }
     }

@@ -7,16 +7,16 @@ namespace PocWebApiDapperEf.App.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CurvaUsingEfController : ControllerBase
+    public class CurvaUsingDapperController : ControllerBase
     {
-        private readonly ICurvaUsingEfService _curvaService;
+        private readonly ICurvaUsingDapperService _curvaService;
 
-        public CurvaUsingEfController(ICurvaUsingEfService curvaService)
+        public CurvaUsingDapperController(ICurvaUsingDapperService curvasService)
         {
-            _curvaService = curvaService;
+            _curvaService = curvasService;
         }
 
-        [HttpGet]
+         [HttpGet]
         public ActionResult<IReadOnlyList<Curva>> Get()
         {
             return Ok(_curvaService.GetAll());

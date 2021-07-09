@@ -8,5 +8,7 @@ namespace PocWebApiDapperEf.Core.Application.Interfaces
         IReadOnlyList<Curva> GetAll();
 
         void Add(Curva entity);
+
+        void DeleteAll();
     }
 }

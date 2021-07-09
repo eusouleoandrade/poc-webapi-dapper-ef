@@ -29,7 +29,7 @@ namespace PocWebApiDapperEf.App.WebApi
                b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             // Repositories
-            services.AddScoped<ICurvaUsingEfRepository, CurvaRepository>();
+            services.AddScoped<ICurvaUsingEfRepository, CurvaUsingEfRepository>();
             services.AddScoped<ICurvaUsingEfService, CurvaUsingEfService>();
 
             // Swagger
