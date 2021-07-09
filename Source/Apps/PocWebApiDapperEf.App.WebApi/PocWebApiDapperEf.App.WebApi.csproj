@@ -4,6 +4,7 @@
     <ProjectReference Include="..\..\Core\PocWebApiDapperEf.Core.Application\PocWebApiDapperEf.Core.Application.csproj" />
     <ProjectReference Include="..\..\Core\PocWebApiDapperEf.Core.Domain\PocWebApiDapperEf.Core.Domain.csproj" />
     <ProjectReference Include="..\..\Infra\PocWebApiDapperEf.Infra.PersistenceEf\PocWebApiDapperEf.Infra.PersistenceEf.csproj" />
+    <ProjectReference Include="..\..\Infra\PocWebApiDapperEf.Infra.PersistenceDapper\PocWebApiDapperEf.Infra.PersistenceDapper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PocWebApiDapperEf.Core.Application.Interfaces;
 using PocWebApiDapperEf.Core.Application.Services;
+using PocWebApiDapperEf.Infra.PersistenceDapper.Repositories;
 using PocWebApiDapperEf.Infra.PersistenceEf.Contexts;
 using PocWebApiDapperEf.Infra.PersistenceEf.Repositories;
 
@@ -20,7 +21,6 @@ namespace PocWebApiDapperEf.App.WebApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Db Context
@@ -30,15 +30,17 @@ namespace PocWebApiDapperEf.App.WebApi
 
             // Repositories
             services.AddScoped<ICurvaUsingEfRepository, CurvaUsingEfRepository>();
+            services.AddScoped<ICurvaUsingDapperRespository, CurvaUsingDapperRepository>();
             services.AddScoped<ICurvaUsingEfService, CurvaUsingEfService>();
+            services.AddScoped<ICurvaUsingDapperService, CurvaUsingDapperService>();
 
             // Swagger
             services.AddSwaggerGen();
             
+            // Add Controllers
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
